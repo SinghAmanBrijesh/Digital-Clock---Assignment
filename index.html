@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Clock - Assignment</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            display: grid;
+            height: 100%;
+            place-items: center;
+            background-color: rgb(18, 19, 19);
+        }
+        
+        .outer-box {
+            background: rgb(255, 255, 255);
+            height: 10rem;
+            width: 45rem;
+            border-radius: 20px;
+            top: 35%;
+            position: absolute;
+            cursor: default;
+            animation: animate 1.8s linear infinite;
+        }
+        
+        .inear-box {
+            position: absolute;
+            top: 15%;
+            height: 90px;
+            width: 40rem;
+            left: 28px;
+            border: 12px solid black;
+            background-image: linear-gradient(to right, #006175 0%, #728d87 100%, #266944 0%);
+            border-radius: 20px;
+            text-align: center;
+            z-index: 999;
+        }
+        
+        .inear-box:hover {
+            background-image: linear-gradient(to right, #476264 0%, #717a45 100%, #11ccd3 0%);
+        }
+        
+        #main-section {
+            line-height: 90px;
+            font-size: 50px;
+            font-weight: 800px;
+            letter-spacing: 2px;
+            animation: animate 1.8s linear infinite;
+        }
+        
+        #a {
+            background: #e1f1f5;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        #main-section :hover {
+            background-color: rgb(0, 0, 0);
+        }
+        
+        @keyframes animate {
+            100% {
+                filter: hue-rotate(400deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="outer-box">
+        <div class="inear-box">
+            <div id="main-section">
+                <div id="a"></div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function Clock() {
+            let Time = new Date();
+            let CurTime = Time.toLocaleTimeString();
+            document.getElementById('a').innerHTML = CurTime;
+        }
+        let ChangeTime = setInterval(Clock, 1000)
+    </script>
+</body>
+
+</html>
